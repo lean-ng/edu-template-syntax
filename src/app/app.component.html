@@ -1,25 +1,63 @@
-<header
-  class="
-    text-gray-700
-    bg-white
-    h-16
-    flex
-    px-8
-    items-center
-    border-b border-gray-300
-    shadow
-  "
->
-  <div class="flex">
-    <img class="h-10 mr-4" src="/assets/logo.png" alt="">
-    <h1 class="text-3xl font-semibold">Lean Stack</h1>
-  </div>
-</header>
-<main class="max-w-4xl px-8 my-8 mx-auto">
-  <div class="bg-white py-8 px-4 border rounded shadow-lg">
-    <h2 class="text-2xl font-semibold border-b border-gray-300 px-4 pb-2 mb-4">{{ title }}</h2>
-    <div class="px-4">
-      <p>Template-Repository für meine Schulungsbeispiele</p>
+<div>
+  <!-- Hideable sidebar -->
+  <div [ngClass]="{ sidebarOpen }"
+    class="transform -translate-x-full transition ease-in-out duration-300 fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
+
+    <div [ngClass]="{ sidebarOpen }" class="opacity-0 fixed inset-0 bg-gray-600 bg-opacity-75 transition-opacity ease-in-out duration-300" aria-hidden="true"></div>
+
+    <div [ngClass]="{ sidebarOpen }" class="-translate-x-full relative flex-1 flex flex-col max-w-xs w-full bg-white transition ease-in-out duration-300 transform">
+
+      <div  class="absolute top-0 right-0 -mr-12 pt-2">
+        <button (click)="sidebarOpen = false" type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+          <span class="sr-only">Close sidebar</span>
+          <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+        <div class="flex items-center flex-shrink-0 px-4 pb-4 border-b">
+          <img class="h-8 w-auto" src="/assets/logo.png" alt="Lean Stack Logo" />
+          <span class="ml-2 text-xl font-semibold">Template Syntax</span>
+        </div>
+        <app-nav></app-nav>
+      </div>
+    </div>
+
+    <div class="flex-shrink-0 w-14">
+      <!-- Force sidebar to shrink to fit close icon -->
     </div>
   </div>
-</main>
+
+  <!-- Static sidebar-->
+  <div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+    <!-- Sidebar component -->
+    <div class="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white">
+      <div class="flex-1 flex flex-col pt-4 pb-4 overflow-y-auto">
+        <div class="flex items-center flex-shrink-0 px-4 pb-4 border-b">
+          <img class="h-8 w-auto" src="/assets/logo.png" alt="Lean Stack Logo" />
+          <span class="ml-2 text-xl font-semibold">Template Syntax</span>
+        </div>
+        <app-nav></app-nav>
+      </div>
+    </div>
+  </div>
+  <!-- Main content -->
+  <div class="md:pl-64 flex flex-1">
+    <div class="absolute top-0 z-10 md:hidden pl-1 pt-3 sm:pl-3 bg-gray-100">
+      <button type="button" (click)="sidebarOpen = true"
+        class="-ml-0.5 -mt-1 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <main class="flex-1 py-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+
+</div>

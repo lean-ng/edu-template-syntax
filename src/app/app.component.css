@@ -1,0 +1,9 @@
+.sidebarOpen {
+  opacity: 100;
+  transform: translateX(0);
+}
+
+.showBackdrop {
+  background-color: rgba(75, 85, 99, 0.75);
+  transform: translateX(0);
+}
