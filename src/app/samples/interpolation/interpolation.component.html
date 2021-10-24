@@ -8,29 +8,33 @@
       <div class="px-4 py-5 border-b border-gray-200 mb-4">
         <h2 class="text-2xl leading-6 font-medium text-gray-900">
           <!-- Titel und Url einsetzen-->
-          Training: <a class="underline" href="https://frameworkUrl" target="_blank">frameworkTitle</a>
+          Training: <a class="underline" href="{{ frameworkHomepage }}" target="_blank">{{ frameworkTitle }}</a>
         </h2>
       </div>
       <div class="px-4">
         <h3 class="text-xl">
           <!-- Anzahl Themen dynamisch berechnen -->
-          Anzahl Themen: 17
+          Anzahl Themen: {{ topics.length }}
         </h3>
         <table class="w-full mt-4">
           <tbody>
             <tr>
               <!-- Spaltenanzahl dynamisch berechnen -->
-              <th rowspan="3">Themen</th>
+              <th rowSpan="{{ topics.length }}">Themen</th>
               <!-- Thementitel einfügen-->
-              <td>Topic 1</td>
+              <td>{{ topics[0] }}</td>
             </tr>
             <tr>
               <!-- Thementitel einfügen-->
-              <td>Topic 2</td>
+              <td>{{ topics[1] }}</td>
             </tr>
             <tr>
               <!-- Thementitel einfügen-->
-              <td>Topic 3</td>
+              <td>{{ topics[2] }}</td>
+            </tr>
+            <tr>
+              <!-- Thementitel einfügen-->
+              <td>{{ topics[3] }}</td>
             </tr>
           </tbody>
         </table>
