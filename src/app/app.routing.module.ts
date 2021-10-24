@@ -3,7 +3,10 @@ import { Route, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 
-const routes: Route[] = [{ path: '', component: HomeComponent }];
+const routes: Route[] = [
+  { path: '', redirectTo: '/start', pathMatch: 'full' },
+  { path: 'start', component: HomeComponent },
+];
 
 @NgModule({
   declarations: [HomeComponent],
