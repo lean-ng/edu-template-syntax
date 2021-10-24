@@ -15,12 +15,7 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    InterpolationComponent,
-    PropertyBindingComponent,
-    EventBindingComponent,
-  ],
+  declarations: [],
   imports: [
     RouterModule.forRoot(routes, {
       onSameUrlNavigation: 'reload',
