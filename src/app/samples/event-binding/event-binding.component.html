@@ -14,20 +14,15 @@
         <h3 class="text-lg">
           Themen: {{ topics.join(', ') }}
         </h3>
-        <!-- Simplere Lösung mit FormsModule-->
-        <form class="flex mt-4 p-2 rounded border" (submit)="addTopic()">
-          <!-- Neues Thema im Input-Feld übernehmen (Enter-Taste oder Click auf den Button) -->
-          <!-- Feldinhalt sollte danach leer sein -->
+        <div class="flex mt-4 p-2 rounded border">
           <!-- Wie ist es zu lösen, wenn form und button Element fehlen?-->
-          <input name="newTopic" class="px-2 py-1 w-full mr-4 focus:outline-none focus:ring focus:ring-indigo-500" type="text"
+          <input  class="px-2 py-1 w-full focus:outline-none focus:ring focus:ring-indigo-500" type="text"
             placeholder="Weiteres Thema"
-            [(ngModel)]="newTopic"
+            [value]="newTopic"
+            (change)="newTopic = $any($event.target).value"
+            (keyup.enter)="addTopic()"
             >
-          <button type="submit"
-            class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Anfügen
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
